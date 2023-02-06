@@ -9,6 +9,18 @@ exports.getAll = (req, res) => {
       });
     });
   };
+
+  exports.getAllAdmin = (req, res) => {
+    req.getConnection((err, conn) => {
+      if (err) return res.send(err);
+  
+      conn.query(`SELECT * FROM admin`, (err, result) => {
+        if (err) return res.send("Algo salio mal");
+        
+        res.json(result);
+      });
+    });
+  };
   
   exports.getOne = (req, res) => {
     req.getConnection((err, conn) => {
@@ -37,6 +49,19 @@ exports.getAll = (req, res) => {
       });
     });
   };
+
+  exports.crearAdmin = (req, res) => {
+    req.getConnection((err, conn) => {
+      if (err) return res.send(err);
+  
+      conn.query(`INSERT INTO admin SET ? `, [req.body], (err, result) => {
+        if (err) return res.send(err);
+  
+        res.send("Creación exitosa");
+      });
+    });
+  };
+  
   
   exports.update = (req, res) => {
     req.getConnection((err, conn) => {
