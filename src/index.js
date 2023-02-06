@@ -7,19 +7,8 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
+
 const PORT = process.env.PORT || 5001;
-
-var whitelist = ['https://node-tutorial-production.up.railway.app/create']
-
-var corsOptions = {
-    origin: function(origin, callback){
-        if(whitelist.indexOf(origin) == -1){
-            callback(null,true);
-        }else{
-            callback(new Error("Not allowed by Cors"));
-        }
-    }
-}
 
 const dbConfig = {
     host: process.env.DB_HOST || "localhost",
@@ -29,9 +18,6 @@ const dbConfig = {
     database: process.env.DB_NAME || "node-tutorial"
 }
 
-app.get('/', cors(corsOptions),(req, res) =>{
-    res.json({mensaje: 'ok'});
-});
 app.use(conn(mysql, dbConfig, "single"));
 app.use(express.json());
 app.use('/',route);
