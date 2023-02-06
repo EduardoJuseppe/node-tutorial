@@ -3,8 +3,10 @@ const express = require("express");
 const mysql = require("mysql2");
 const conn = require("express-myconnection");
 const route = require("./routes/index");
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 5001;
 
 const dbConfig = {
