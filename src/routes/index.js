@@ -10,6 +10,7 @@ const {
   crearProducto,
   update,
   deleteItem,
+  deleteProducto,
 } = require("../controllers/index");
 
 route.get("/getAll", getAll);
@@ -21,5 +22,6 @@ route.post("/crearAdmin", crearAdmin);
 route.post("/crearProducto", crearProducto);
 route.put("/update/:value", update);
 route.delete("/delete/:value", deleteItem);
+route.delete("/deleteProducto/:value", deleteProducto);
 
 module.exports = route;

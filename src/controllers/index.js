@@ -118,4 +118,20 @@ exports.getAll = (req, res) => {
       );
     });
   };
+
+  exports.deleteProducto = (req, res) => {
+    req.getConnection((err, conn) => {
+      if (err) return res.send(err);
+  
+      conn.query(
+        `DELETE FROM productos WHERE id = ?`,
+        [req.params.value],
+        (err, result) => {
+          if (err) return res.send(err);
+  
+          res.send("Eliminación exitosa");
+        }
+      );
+    });
+  };
   
