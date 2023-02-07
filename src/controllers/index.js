@@ -39,7 +39,7 @@ exports.getAll = (req, res) => {
       if (err) return res.send(err);
   
       conn.query(
-        `SELECT * FROM usuario WHERE id = ?`,
+        `SELECT * FROM productos WHERE id = ?`,
         [req.params.value],
         (err, result) => {
           if (err) return res.send(err);
