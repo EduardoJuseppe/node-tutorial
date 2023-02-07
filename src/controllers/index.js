@@ -92,7 +92,7 @@ exports.getAll = (req, res) => {
       if (err) return res.send(err);
   
       conn.query(
-        `UPDATE usuario SET ? WHERE id = ?`,
+        `UPDATE productos SET ? WHERE id = ?`,
         [req.body, req.params.value],
         (err, result) => {
           if (err) return res.send(err);
