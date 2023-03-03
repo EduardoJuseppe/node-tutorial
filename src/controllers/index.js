@@ -55,7 +55,7 @@ exports.getAll = (req, res) => {
       if (err) return res.send(err);
   
       conn.query(
-        `SELECT top 10 FROM productos WHERE nombre LIKE CONCAT('%', ?,  '%')`,
+        `SELECT FROM productos WHERE nombre LIKE CONCAT('%', ?,  '%') LIMIT 10`,
         [req.params.value],
         (err, result) => {
           if (err) return res.send(err);
