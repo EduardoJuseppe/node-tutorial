@@ -55,7 +55,7 @@ exports.getAll = (req, res) => {
       if (err) return res.send(err);
   
       conn.query(
-        "SELECT * FROM productos WHERE nombre LIKE '%?%'",
+        "SELECT * FROM productos WHERE nombre LIKE ?",
         [req.params.value],
         (err, result) => {
           if (err) return res.send(err);
