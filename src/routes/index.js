@@ -5,6 +5,7 @@ const {
   getAllAdmin,
   getAllProductos,
   getOne,
+  getlike,
   create,
   crearAdmin,
   crearProducto,
@@ -17,6 +18,7 @@ route.get("/getAll", getAll);
 route.get("/getAllAdmin", getAllAdmin);
 route.get("/getAllProductos", getAllProductos);
 route.get("/getOne/:value", getOne);
+route.get("/getlike/:value", getlike);
 route.post("/create", create);
 route.post("/crearAdmin", crearAdmin);
 route.post("/crearProducto", crearProducto);

@@ -49,6 +49,22 @@ exports.getAll = (req, res) => {
       );
     });
   };
+
+  exports.getlike = (req, res) => {
+    req.getConnection((err, conn) => {
+      if (err) return res.send(err);
+  
+      conn.query(
+        `SELECT top 10 FROM productos like nombre %?%`,
+        [req.params.value],
+        (err, result) => {
+          if (err) return res.send(err);
+  
+          res.json(result);
+        }
+      );
+    });
+  };
   
   exports.create = (req, res) => {
     req.getConnection((err, conn) => {
